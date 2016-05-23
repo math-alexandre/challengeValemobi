@@ -53,6 +53,7 @@ else:
     var form = document.getElementById("form");
     var btn = document.getElementById("btnAdd");
 
+	//Click do botão Adicionar
     btn.onclick = function () {
         if (form["nome"].value.trim() == "") {
             alert('O campo Nome é obrigatório');
