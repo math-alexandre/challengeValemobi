@@ -1,4 +1,5 @@
 <?php
+//Includes
 include './header.php';
 require_once './util/Conexao.class.php';
 
@@ -7,11 +8,12 @@ $id = $_GET['id'];
 $colunas = array("tbl_item.*");
 $data = $conexao->select("tbl_item", $colunas, "WHERE id = '" . $id . "'");
 $id = $data[0]['id'];
+//Não existe
 if (count($data) == 0):
     ?>
     <div id="conteudo" class="container">
         <h1>A mercadoria não existe !</h1>
-        <a href="itens.php" class="btn btn-default">Voltar</a>
+        <a href="itens.php" class="btn btn-info">Voltar</a>
     </div>
     <?php
 else:
@@ -68,7 +70,7 @@ else:
                     </div>
                     <input type="button" class="btn btn-default" value="Salvar" id="btnAdd" 
                            title="Adicionar Mercadoria" >
-                    <a href="itens.php" class="btn btn-default">Voltar</a>
+                    <a href="itens.php" class="btn btn-info">Voltar</a>
                 </form>
                 <div class="hide" id="erro">
                     Informe todos os valores para prosseguir !

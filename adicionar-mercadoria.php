@@ -11,7 +11,7 @@ $dados = $conexao->select('tbl_tipo', $colunas, NULL);
     <div class="container" id="conteudo">
         <h1>Não existem tipos de mercadorias cadastrados !</h1>
         <a href="adicionar-tipo.php" class="btn btn-danger">Adicionar Tipo</a>
-        <a href="index.php" class="btn btn-default">Voltar</a>
+        <a href="index.php" class="btn btn-info">Voltar</a>
     </div>
 <?php else: ?>
     <div class="container" id="conteudo">
@@ -48,8 +48,8 @@ $dados = $conexao->select('tbl_tipo', $colunas, NULL);
                             <option>Venda</option>
                         </select>
                     </div>
-                    <input type="button" class="btn btn-default" value="Adicionar" id="btnAdd" title="Adicionar Mercadoria" >
-                    <a href="index.php" class="btn btn-default">Voltar</a>
+                    <input type="button" class="btn btn-success" value="Adicionar" id="btnAdd" title="Adicionar Mercadoria" >
+                    <a href="index.php" class="btn btn-info">Voltar</a>
                 </form>
                 <div class="hide collapse collapsed" id="erro">
                     Informe todos os valores para prosseguir !

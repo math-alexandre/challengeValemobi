@@ -1,9 +1,9 @@
 <?php
-
+//Includes
 require_once('./util/Conexao.class.php');
-
+//Atribuições
 $tipo = $_POST['tipo'];
-$nome = $_POST['nome'];
+$nome = trim($_POST['nome']);
 $quantidade = $_POST['quantidade'];
 $preco = $_POST['preco'];
 $tipoNegocio = $_POST['tipoNegocio'];

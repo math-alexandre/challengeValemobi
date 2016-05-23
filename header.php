@@ -10,7 +10,6 @@
 
         <script src="js/jquery-1.12.4.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/validacoes.js"></script>
     </head>
     <body>
         <div class="navbar navbar-default navbar-fixed-top">    

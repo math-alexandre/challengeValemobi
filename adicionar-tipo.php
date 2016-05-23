@@ -14,8 +14,8 @@ include './header.php';
                     <label>Descrição</label>
                     <input title="Descrição" type="text" class="form-control" name="descricao">
                 </div>
-                <input type="button" class="btn btn-default" value="Adicionar" id="btnAdd" title="Adicionar Tipo" >
-                <a href="index.php" class="btn btn-default">Voltar</a>
+                <input type="button" class="btn btn-success" value="Adicionar" id="btnAdd" title="Adicionar Tipo" >
+                <a href="index.php" class="btn btn-info">Voltar</a>
             </form>
             <div class="hide collapse collapsed" id="erro">
                 Informe um Nome para o tipo para prosseguir !
@@ -28,7 +28,7 @@ include './header.php';
     var btn = document.getElementById("btnAdd");
 
     btn.onclick = function () {
-        if (form["nome"].value == "") {
+        if (form["nome"].value.trim() == "") {
             alert('O campo Nome é obrigatório');
             erro.className = "alert alert-warning show";
             form["nome"].focus();
