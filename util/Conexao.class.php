@@ -6,10 +6,10 @@
 
         function __construct(){
             $this->conexao = mysqli_connect("localhost", "root", "math321") or die(mysqli_error($this->conexao));
-            $this->banco   = mysqli_select_db($this->conexao, "valemobi") or die(mysqli_error($this->conexao));
+            $this->banco   = mysqli_select_db($this->conexao, "valemobichallenge") or die(mysqli_error($this->conexao));
             $this->charset = mysqli_set_charset($this->conexao, "utf8") or die(mysqli_error($this->conexao));
         }
-
+        
         function insert($tabela, $campos, $valores) {
             $query = "INSERT INTO ".$tabela."(";
 
@@ -62,18 +62,6 @@
             mysqli_query($this->conexao, $query);
         }
         
-        function delete($tabela, $campo, $valor){
-            $query = "DELETE FROM $tabela WHERE $campo = ";
-            
-            if(is_int($valor) || is_float($valor) || is_double($valor)){
-                $query .= $valor;
-            }else{
-                $query .= "'".$valor."'";
-            }
-            
-            mysqli_query($this->conexao, $query);
-        }
-        
         function select($tabela, $colunas, $where) {
             $query = "SELECT ";
             $data  = array();
@@ -87,21 +75,11 @@
             }
             
             $query .= " FROM $tabela ".$where;
+            echo $query;
             $q = mysqli_query($this->conexao, $query) or die(mysqli_error($this->conexao));
-            
             while($a = mysqli_fetch_assoc($q)){
                 array_push($data, $a);
             }
-            return $data;
-        }
-        
-        function selectmax($tabela, $coluna, $where){
-            $data = array();
-            $query = "SELECT MAX($coluna) AS 'maximo' FROM $tabela ".$where;
-            $q = mysqli_query($this->conexao, $query) or die(mysqli_error($this->conexao));
-            
-            array_push($data, mysqli_fetch_assoc($q));
-            
             return $data;
         }
     }

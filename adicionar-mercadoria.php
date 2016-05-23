@@ -14,9 +14,6 @@ $dados = $conexao->select('tbl_tipo', $colunas, NULL);
         <a href="index.php" class="btn btn-default">Voltar</a>
     </div>
 <?php else: ?>
-    <script type="text/javascript">
-        var validar = false;
-    </script>
     <div class="container" id="conteudo">
         <div class="row">
             <div class="col-md-6">
@@ -36,11 +33,13 @@ $dados = $conexao->select('tbl_tipo', $colunas, NULL);
                     </div>
                     <div class="form-group">
                         <label>Quantidade</label>
-                        <input title="Quantidade" type="number" class="form-control" name="quantidade">
+                        <input title="Quantidade" type="number" step="1" max="100000" min="1"
+                               class="form-control" name="quantidade">
                     </div>
                     <div class="form-group">
                         <label>Preço</label>
-                        <input title="Preço" type="text" class="form-control" name="preco">
+                        <input title="Preço da Mercadoria" type="number" step="0.1"  id="preco" min="0.1"
+                               class="form-control" name="preco" max="100000.0">
                     </div>
                     <div class="form-group">
                         <label>Tipo de Negócio</label>
@@ -52,7 +51,7 @@ $dados = $conexao->select('tbl_tipo', $colunas, NULL);
                     <input type="button" class="btn btn-default" value="Adicionar" id="btnAdd" title="Adicionar Mercadoria" >
                     <a href="index.php" class="btn btn-default">Voltar</a>
                 </form>
-                <div class="alert alert-warning hide" id="erro">
+                <div class="hide collapse collapsed" id="erro">
                     Informe todos os valores para prosseguir !
                 </div>
             </div>
@@ -62,10 +61,11 @@ $dados = $conexao->select('tbl_tipo', $colunas, NULL);
 <script type="text/javascript">
     var form = document.getElementById("formulario");
     var btn = document.getElementById("btnAdd");
-
+    var erro = document.getElementById("erro");
+        
     btn.onclick = function () {
-        if (form["nome"].value == "" || form["quantidade"].value == "" || form["preco"].value == "") {
-            validar = true;
+        if (form["nome"].value.trim() == "" || form["quantidade"].value == "" || form["preco"].value.trim() == "") {
+            erro.className = "alert alert-warning show";
             alert("Informe todos os valores para continuar !");
         }
         else {

@@ -1,0 +1,14 @@
+RewriteEngine On
+
+RewriteRule ^inicio/$ index.php
+
+# REGRAS DE MERCADORIA
+
+RewriteRule ^mercadoria/novo/$ adicionar-mercadoria.php
+RewriteRule ^mercadoria/editar/([0-9])/$ editar-mercadoria.php?id=$1
+RewriteRule ^mercadoria/alterar/([0-9])/$ salvar-mercadoria.php?id=$1
+RewriteRule ^mercadoria/adicionar/$ cadastro-mercadoria.php
+RewriteRule ^mercadoria/$ itens.php
+
+RewriteRule ^tipo/novo/$ adicionar-tipo.php
+RewriteRule ^tipo/adicionar/$ cadastro-tipo.php
